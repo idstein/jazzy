@@ -202,6 +202,13 @@ module Jazzy
         arguments += ['--']
       end
 
+      # build demo hack
+      if options.module_name == 'MiscJazzyFeatures'
+        system('swift build -Xswiftc -swift-version '\
+               '-Xswiftc 4.2 2>&1 >/dev/null')
+      end
+      # end hack
+
       arguments + options.xcodebuild_arguments
     end
 
